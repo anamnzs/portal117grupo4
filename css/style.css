@@ -8,13 +8,19 @@
   --secundaria: #3F5A47;   /* verde musgo escuro: faixas, cards, botões */
   --apoio: #E8DFD0;        /* areia mineral: fundos de seção, bordas suaves */
 
+  /* Cores da identidade compartilhada do portal (usadas somente no menu principal) */
+  --portal-marinho: #132442;
+  --portal-azul: #3551A4;
+  --portal-agua: #8AD6D6;
+  --portal-lima: #D6E264;
+
   --cor-destaque: var(--primaria);
   --cor-acento: var(--secundaria);
   --cor-link: var(--primaria);
 
   --fonte-titulo: "Merriweather", Georgia, "Times New Roman", serif;
   --fonte-texto: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fonte-sub: var(--fonte-texto); /* subtítulos: troque aqui se quiser uma 3ª fonte */
+  --fonte-sub: var(--fonte-texto); 
 
   --largura: 1080px;
   --leitura: 68ch;
@@ -425,20 +431,40 @@ strong { font-weight: 600; }
 :root { --topo-altura: 4.5rem; }
 html.com-secoes { --topo-altura: 8.5rem; }
 
-.topo__site { background: var(--texto); color: var(--apoio); }
+.topo__site { background: var(--portal-marinho); color: var(--apoio); }
 .topo__site .topo__linha { padding-block: 0.3rem; }
 .topo__site .topo__marca { color: var(--apoio); font-size: 1rem; }
-.topo__site :focus-visible { outline-color: var(--apoio); }
+.topo__site :focus-visible { outline-color: var(--portal-lima); }
 
-.menu--paginas a { color: var(--apoio); }
+/* Menu principal do portal: as cores compartilhadas aparecem somente aqui. */
+.menu--paginas {
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background: var(--portal-agua);
+  border: 2px solid var(--portal-agua);
+  border-radius: 999px;
+}
+
+.menu--paginas a {
+  color: var(--portal-marinho);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 .menu--paginas a:hover,
 .menu--paginas a:focus-visible {
   color: var(--fundo);
-  border-bottom-color: var(--fundo);
+  background: var(--portal-azul);
+  border-bottom-color: transparent;
 }
 .menu--paginas a[aria-current="page"] {
-  color: var(--fundo);
-  border-bottom-color: var(--primaria);
+  color: var(--portal-marinho);
+  background: var(--portal-lima);
+  border-bottom-color: transparent;
+  font-weight: 700;
 }
 
 .topo__secoes { background: var(--fundo); }
